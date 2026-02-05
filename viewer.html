@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generated Timetable</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top-bar">
+    <div class="app-name">📅 Generated Timetable</div>
+    <button onclick="goBack()">⬅ Back</button>
+</header>
+
+<div class="container">
+    <section class="card">
+        <h2>📘 Study Schedule</h2>
+        <table id="timetable" style="width:100%; border-collapse:collapse;"></table>
+    </section>
+</div>
+
+<script>
+const table = document.getElementById("timetable");
+const data = JSON.parse(localStorage.getItem("timetable")) || [];
+
+if (data.length === 0) {
+    table.innerHTML = "<p>No timetable generated</p>";
+} else {
+    table.innerHTML = `
+        <tr>
+            <th>Date</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Subject</th>
+        </tr>
+    `;
+
+    data.forEach(row => {
+        table.innerHTML += `
+            <tr>
+                <td>${row.date}</td>
+                <td>${row.start}</td>
+                <td>${row.end}</td>
+                <td>${row.subject}</td>
+            </tr>
+        `;
+    });
+}
+
+function goBack() {
+    window.location.href = "index.html";
+}
+</script>
+
+</body>
+</html>
