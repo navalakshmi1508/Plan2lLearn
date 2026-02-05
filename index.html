@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Plan2Learn</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="top-bar">
+    <div class="app-name">📘 Plan2Learn</div>
+    <div class="profile">
+        👤 <input type="text" id="loginId" placeholder="Login ID">
+    </div>
+</header>
+
+<div class="container">
+
+    <!-- STUDY SETTINGS -->
+    <section class="card">
+        <h2>🎯 Study Settings</h2>
+        <div class="row">
+            <input type="date" id="examDate">
+            <input type="number" id="dailyHours" placeholder="Daily Hours">
+            <input type="time" id="startTime">
+        </div>
+    </section>
+
+    <!-- STUDY TOOLS -->
+    <section class="card">
+        <h2>📂 Study Tools</h2>
+
+        <div class="row">
+            <!-- PDF Upload -->
+            <div class="tool">
+                📎 Upload PDF
+                <input type="file" id="pdfUpload" accept=".pdf">
+            </div>
+
+            <!-- Subjects -->
+            <div class="tool">
+                ⚙️ Subjects & Priority
+                <div id="subjects"></div>
+                <button onclick="addSubject()">+ Add Subject</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROGRESS -->
+    <section class="card">
+        <h2>📊 Progress Report</h2>
+        <div id="progressArea"></div>
+    </section>
+
+    <!-- GENERATE -->
+    <div class="generate">
+        <button onclick="goToNextPage()">🚀 Generate Timetable</button>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
+<button onclick="generateTimetable()">🚀 Generate Timetable</button>
